@@ -29,18 +29,23 @@ public abstract class GUI extends JFrame implements ActionListener  {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		getContentPane().setLayout(null);
 		
-		JButton btnStart = new JButton("Start");
 		btnStart.setBounds(27, 283, 85, 23);
 		getContentPane().add(btnStart);
-		JButton btnWager = new JButton("Wager");
+
 		btnWager.setBounds(259, 283, 85, 23);
 		getContentPane().add(btnWager);
-		JButton btnHit = new JButton("Hit");
+
 		btnHit.setBounds(370, 283, 85, 23);
 		getContentPane().add(btnHit);
-		JButton btnReset = new JButton("Reset");
+
 		btnReset.setBounds(370, 385, 85, 23);
 		getContentPane().add(btnReset);
+		
+		btnReset.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				clear(); //��GUI Class銝剜憓��ethod
+			}
+		});
 	}
 
 	public void startGame(int m, int n) {
@@ -60,28 +65,21 @@ public abstract class GUI extends JFrame implements ActionListener  {
 		board.clear();
 	}
 
-	public void printCard(String name, JTextArea textArea) {
-		board.printHandCard();
+	public void printCard(int i , JTextArea textArea) {
+		board.printHandCard(i);
 	}
 
-	public String printValue(String name) {
+	public String printValue(int i) {
 		System.out.println(player.handvalue());
-		String s = Integer.toString(player.handvalue());
+		String s = Integer.toString(board.printHandValue(i));
 		return s;
 	}
 
-	public void winLose(String name) {
-		board.winLose();
+	public void winLose(int i) {
+		board.winLose(i);
 	}
 
 	public void clear() {
 		board.clear();
-	}
-
-	
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
-
 	}
 }

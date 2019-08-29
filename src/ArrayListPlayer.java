@@ -43,8 +43,7 @@ public class ArrayListPlayer {
 
 	// �q���[�P
 	public void extraCardComputer(ArrayList<Card> cards) {
-		if (handValue("Player0") < 16)
-			;
+		if (handValue("Player0") < 16);
 		extraCard("Player0", cards);
 	}
 

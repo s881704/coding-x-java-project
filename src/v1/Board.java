@@ -35,7 +35,7 @@ public class Board {
 			// 將第0位玩家設為dealer
 			pList.set(0, new Dealer());
 			// dealer.extraCard();
-			winLose();
+			//winLose();
 		} else {
 			turn++;
 		}
@@ -51,21 +51,25 @@ public class Board {
 	public void sendCard() {
 		// 發牌給每位玩家
 		for (int i = 0; i < pList.size(); i++) {
+			Player p = new Player();
+			pList.add(p);
 			pList.get(i).extraCard(deck.givecard());
 			pList.get(i).extraCard(deck.givecard());
 		}
 	}
 
-	public void printHandCard() {
+	public void printHandCard(int i) {
 		// 第i位玩家的手牌
-		for (int i = 0; i < pList.size(); i++) {
-			pList.get(i).getHandcard();
-		}
+		pList.get(i).getHandcard();
 	}
-
-	public void winLose() {
+	
+	public int printHandValue(int i) {
+		int value = pList.get(i).handvalue();
+		return value;
+	}
+	public void winLose(int i) {
 		// 判斷輸贏
-		if (pList.get(turn).handvalue() > pList.get(0).handvalue()) {
+		if (pList.get(i).handvalue() > pList.get(0).handvalue()) {
 			System.out.println();
 		}
 	}

@@ -5,6 +5,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import v1.Deck;
+import javax.swing.JTextField;
+import javax.swing.JButton;
+import javax.swing.JLabel;
 
 import javax.swing.*;
 
@@ -105,10 +108,9 @@ public class GUIStart extends JFrame implements ActionListener {
 			//gui = new GUI3p();
 			break;
 		case 4:
-			//System.out.println("44");
-	    	SwingUtilities.invokeLater(GUI4p::new);
-			//GUI4p gui4 = new GUI4p();
-			//gui = new GUI4p();
+			GUI gui = new GUI4p();
+			gui.setVisible(true);
+			gui.setResizable(true);
 			break;
 		}
 
