@@ -1,7 +1,9 @@
 package v1;
 
-public class Dealer extends Player{
-	public void extraCard() {
-		//¥sµP
-	}
+import java.util.ArrayList;
+
+public class Dealer extends Player {
+	private ArrayList<Card> handcard;
+
+
 }

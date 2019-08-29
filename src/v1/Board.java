@@ -3,38 +3,38 @@ package v1;
 import java.util.ArrayList;
 
 public class Board {
-	private Deck deck ;
-	private ArrayList<Player> pList ;
+	private Deck deck;
+	private ArrayList<Player> pList;
 	private int turn;
 
-	public Board(int m ,int n) {
-		this.deck= new Deck(m);
+	public Board(int m, int n) {
+		this.deck = new Deck(m);
 		this.pList = new ArrayList<Player>(n);
-	}
-
-	public void setup() {
-		// 取得牌堆
-		int n = 0;
-		deck = new Deck(n);
-		// 玩家創建
-		pList = new ArrayList<Player>();
 	}
 
 	public void wager() {
 		// 第i位玩家拿牌
-		deck.givecard();
 		if (pList.get(turn).handvalue() > 21) {
 			turn++;
 			// 揭開手牌、印出爆牌
 		}
-		pList.get(turn).extraCard();
+		pList.get(turn).extraCard(deck.givecard());
+
+	}
+
+	public void dealerWager() {
+		if (pList.get(0).handvalue() >= 17) {
+		} else if (pList.get(0).handvalue() < 17) {
+			pList.get(0).extraCard(deck.givecard());
+			dealerWager();
+		}
 	}
 
 	public void hit() {
 		if (turn == pList.size()) {
-			pList.get(0);
-			// pList(0) 從player改成Dealer
-			//dealer.extraCard();
+			// 將第0位玩家設為dealer
+			pList.set(0, new Dealer());
+			// dealer.extraCard();
 			winLose();
 		} else {
 			turn++;
@@ -50,16 +50,24 @@ public class Board {
 
 	public void sendCard() {
 		// 發牌給每位玩家
+		for (int i = 0; i < pList.size(); i++) {
+			pList.get(i).extraCard(deck.givecard());
+			pList.get(i).extraCard(deck.givecard());
+		}
 	}
 
 	public void printHandCard() {
 		// 第i位玩家的手牌
-		int i = 1;
-		pList.get(i).getHandcard();
+		for (int i = 0; i < pList.size(); i++) {
+			pList.get(i).getHandcard();
+		}
 	}
 
 	public void winLose() {
 		// 判斷輸贏
+		if (pList.get(turn).handvalue() > pList.get(0).handvalue()) {
+			System.out.println();
+		}
 	}
 
 }
