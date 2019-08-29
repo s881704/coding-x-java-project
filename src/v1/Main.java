@@ -4,11 +4,6 @@ import GUI.*;
 
 public class Main {
 	public void main(String[] args) {
-		GUIStart gui = new GUIStart();
-		
+		GUIStart guistart = new GUIStart();
 	}
-	
-	public void selectGUI(int n) {
-		
-		}
-	}
+}

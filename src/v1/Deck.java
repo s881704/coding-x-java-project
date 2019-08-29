@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 public class Deck {
 	private ArrayList<Card> deck = new ArrayList<Card>();
+	
 	public Deck(int n) {
 		//initialize ´X°ÆµP
 	}
@@ -14,3 +15,4 @@ public class Deck {
 		
 	}
 }
+

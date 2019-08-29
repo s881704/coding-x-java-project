@@ -18,7 +18,7 @@ public class Player {
 		//清空手牌
 	}
 	
-	public int valueCalculate() {
+	public int handvalue() {
 		// 計算牌值
 		int handvalue = 1;
 		return handvalue;

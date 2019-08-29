@@ -3,7 +3,7 @@
   associations="true" dependencies="true" nesting-relationships="true" router="FAN">  
   <class id="1" language="java" name="v1.Deck" project="20190725_javaproject" 
     file="/20190725_javaproject/src/v1/Deck.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="958" y="184"/>    
+    <position height="-1" width="-1" x="1015" y="159"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -12,7 +12,7 @@
   </class>  
   <class id="2" language="java" name="v1.Card" project="20190725_javaproject" 
     file="/20190725_javaproject/src/v1/Card.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1128" y="308"/>    
+    <position height="-1" width="-1" x="1222" y="348"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -21,7 +21,7 @@
   </class>  
   <class id="3" language="java" name="GUI.GUI" project="20190725_javaproject" 
     file="/20190725_javaproject/src/GUI/GUI.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="535" y="343"/>    
+    <position height="-1" width="-1" x="527" y="221"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -30,7 +30,7 @@
   </class>  
   <class id="4" language="java" name="GUI.GUI2p" project="20190725_javaproject" 
     file="/20190725_javaproject/src/GUI/GUI2p.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="434" y="577"/>    
+    <position height="-1" width="-1" x="479" y="461"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -39,7 +39,7 @@
   </class>  
   <class id="5" language="java" name="v1.Board" project="20190725_javaproject" 
     file="/20190725_javaproject/src/v1/Board.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="755" y="370"/>    
+    <position height="-1" width="-1" x="744" y="338"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -48,7 +48,7 @@
   </class>  
   <class id="6" language="java" name="v1.Main" project="20190725_javaproject" 
     file="/20190725_javaproject/src/v1/Main.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="119" y="340"/>    
+    <position height="-1" width="-1" x="111" y="313"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -57,7 +57,7 @@
   </class>  
   <class id="7" language="java" name="GUI.GUIStart" project="20190725_javaproject" 
     file="/20190725_javaproject/src/GUI/GUIStart.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="124" width="128" x="274" y="305"/>    
+    <position height="-1" width="-1" x="302" y="314"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -66,65 +66,86 @@
   </class>  
   <class id="8" language="java" name="v1.Player" project="20190725_javaproject" 
     file="/20190725_javaproject/src/v1/Player.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="971" y="507"/>    
+    <position height="-1" width="-1" x="1007" y="439"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <dependency id="9">    
-    <end type="SOURCE" refId="5"/>    
-    <end type="TARGET" refId="1"/>  
-  </dependency>  
-  <dependency id="10">    
-    <end type="SOURCE" refId="6"/>    
-    <end type="TARGET" refId="7"/>  
-  </dependency>  
-  <dependency id="11">    
-    <end type="SOURCE" refId="7"/>    
-    <end type="TARGET" refId="3"/>  
-  </dependency>  
-  <dependency id="12">    
-    <end type="SOURCE" refId="3"/>    
-    <end type="TARGET" refId="5"/>  
-  </dependency>  
-  <generalization id="13">    
-    <end type="SOURCE" refId="4"/>    
-    <end type="TARGET" refId="3"/>  
-  </generalization>  
-  <association id="14">    
+  <class id="9" language="java" name="v1.Dealer" project="20190725_javaproject" 
+    file="/20190725_javaproject/src/v1/Dealer.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1005" y="621"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <association id="10">    
     <end type="SOURCE" refId="1" navigable="false">      
-      <attribute id="15" name="deck">        
-        <position height="0" width="0" x="0" y="0"/>      
+      <attribute id="11" name="deck">        
+        <position height="0" width="0" x="94" y="40"/>      
       </attribute>      
-      <multiplicity id="16" minimum="0" maximum="2147483647">        
-        <position height="0" width="0" x="0" y="0"/>      
+      <multiplicity id="12" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="94" y="40"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="2" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="17">    
-    <end type="SOURCE" refId="8" navigable="false">      
-      <attribute id="18" name="handcard"/>      
-      <multiplicity id="19" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="2" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <dependency id="20">    
+  <dependency id="13">    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="5"/>  
+  </dependency>  
+  <dependency id="14">    
     <end type="SOURCE" refId="7"/>    
     <end type="TARGET" refId="4"/>  
   </dependency>  
-  <association id="21">    
+  <association id="15">    
     <end type="SOURCE" refId="5" navigable="false">      
-      <attribute id="22" name="pList"/>      
-      <multiplicity id="23" minimum="0" maximum="2147483647"/>    
+      <attribute id="16" name="pList">        
+        <position height="0" width="0" x="36" y="-68"/>      
+      </attribute>      
+      <multiplicity id="17" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="36" y="-68"/>      
+      </multiplicity>    
     </end>    
     <end type="TARGET" refId="8" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
+  <dependency id="18">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="3"/>  
+  </dependency>  
+  <generalization id="19">    
+    <end type="SOURCE" refId="9"/>    
+    <end type="TARGET" refId="8"/>  
+  </generalization>  
+  <dependency id="20">    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="1"/>  
+  </dependency>  
+  <association id="21">    
+    <end type="SOURCE" refId="8" navigable="false">      
+      <attribute id="22" name="handcard">        
+        <position height="0" width="0" x="94" y="40"/>      
+      </attribute>      
+      <multiplicity id="23" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="94" y="40"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="2" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="24">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="7"/>  
+  </dependency>  
+  <generalization id="25">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="3"/>  
+  </generalization>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
     sort-features="false" accessors="true" visibility="true">    
     <attributes public="true" package="true" protected="true" private="true" static="true"/>    

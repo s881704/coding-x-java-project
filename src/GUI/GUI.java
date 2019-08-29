@@ -6,8 +6,8 @@ import v1.Player;
 public abstract class GUI {
 	private Board board;
 
-	public void startGame() {
-		board = new Board();
+	public void startGame(int m, int n) {
+		board = new Board(m,n);
 	}
 
 	public void hitButton() {
@@ -24,5 +24,9 @@ public abstract class GUI {
 
 	public void printCard() {
 		board.printHandCard();
+	}
+	
+	public void printValue() {
+		
 	}
 }
