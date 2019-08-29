@@ -1,13 +1,28 @@
 package GUI;
 
 import v1.Board;
+import v1.Player;
 
 public abstract class GUI {
-	public void initializeGUI() {
-		//start
-	}
-	public void initialzeGame() {
-		Board board = new Board();
+	private Board board;
 
+	public void startGame() {
+		board = new Board();
+	}
+
+	public void hitButton() {
+		board.hit();
+	}
+
+	public void wagerButton() {
+		board.wager();
+	}
+
+	public void nextRound() {
+		board.clear();
+	}
+
+	public void printCard() {
+		board.printHandCard();
 	}
 }
