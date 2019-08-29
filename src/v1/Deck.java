@@ -4,26 +4,21 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class Deck {
-	private ArrayList<Card> deck = new ArrayList<Card>();
-
-	public Deck(int n) {
-		// initialize 幾副牌
-		this.deck = createDeck(n);
-	}
+	private ArrayList<Card> cards = new ArrayList<Card>();
 
 	// 洗牌
 	public void shuffle() {
-		Collections.shuffle(deck);
+		Collections.shuffle(cards);
 	}
 
 	public Card givecard() {
-		Card temp = deck.get(0);
-		deck.remove(0);
+		Card temp = cards.get(0);
+		cards.remove(0);
 		return temp;
 	}
 
-	public ArrayList<Card> createDeck(int numofDeck) {
-		for (int a = 0; a < numofDeck; a++) {
+	public ArrayList<Card> createDeck(int numofcards) {
+		for (int a = 0; a < numofcards; a++) {
 			for (int icon = 1; icon < 5; icon++) {
 				int index = 0;
 				String iconMask = "";
@@ -44,27 +39,27 @@ public class Deck {
 				for (int i = index; i < index + 13; i++) {
 					if (i == index + 0) {
 						Card c = new Card("A", i - index + 11, icon, iconMask, true);
-						deck.add(c);
+						cards.add(c);
 					} else if (i > index && i < 10 + index) {
 						Card c = new Card(String.valueOf(i + 1 - index), i - index + 1, icon, iconMask, true);
-						deck.add(c);
+						cards.add(c);
 					} else if (i >= 10 + index && i < 13 + index) {
 
 						if (i == 10 + index) {
 							Card c = new Card("J", 10, icon, iconMask, true);
-							deck.add(c);
+							cards.add(c);
 						} else if (i == 11 + index) {
 							Card c = new Card("Q", 10, icon, iconMask, true);
-							deck.add(c);
+							cards.add(c);
 						} else if (i == 12 + index) {
 							Card c = new Card("K", 10, icon, iconMask, true);
-							deck.add(c);
+							cards.add(c);
 						}
 					}
 				}
 			}
 		}
 
-		return deck;
+		return cards;
 	}
 }

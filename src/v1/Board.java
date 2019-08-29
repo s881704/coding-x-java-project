@@ -4,24 +4,40 @@ import java.util.ArrayList;
 
 public class Board {
 	private Deck deck;
-	private ArrayList<Player> pList;
+	private ArrayList<Player> pList = new ArrayList<Player>();
 	private int turn;
 
-	public Board(int m, int n) {
-		this.deck = new Deck(m);
-		this.pList = new ArrayList<Player>(n);
+	/*
+	 * public Board(int m, int n) { this.deck = new Deck(m); this.pList = new
+	 * ArrayList<Player>(n); }
+	 */
+	public void getPlayer(int m) {
+		for (int i = 0; i < m; i++) {
+			Player p = new Player();
+			pList.add(p);
+		}
+	}
+
+	public void getDeck(int n) {
+		deck = new Deck();
+		deck.createDeck(n);
+		deck.shuffle();
 	}
 
 	public void wager() {
-		// 第i位玩家拿牌
+		//拿牌
+		pList.get(turn).extraCard(deck.givecard());
+		//判斷是否爆牌，換下位玩家叫牌
 		if (pList.get(turn).handvalue() > 21) {
 			turn++;
-			// 揭開手牌、印出爆牌
+		} 
+		//判斷是否為最後一位玩家結束，換莊家叫牌
+		if (turn == pList.size()) {
+			dealerWager();
 		}
-		pList.get(turn).extraCard(deck.givecard());
 
 	}
-
+	//莊家叫牌規則
 	public void dealerWager() {
 		if (pList.get(0).handvalue() >= 17) {
 		} else if (pList.get(0).handvalue() < 17) {
@@ -32,16 +48,15 @@ public class Board {
 
 	public void hit() {
 		if (turn == pList.size()) {
-			// 將第0位玩家設為dealer
-			pList.set(0, new Dealer());
-			// dealer.extraCard();
-			//winLose();
+			//判斷是否為最後一位玩家結束，換莊家叫牌
+			dealerWager();
 		} else {
 			turn++;
 		}
 	}
 
 	public void clear() {
+		//清除所有人手牌
 		for (int i = 0; i < pList.size(); i++) {
 			pList.get(i).clearHand();
 		}
@@ -51,24 +66,26 @@ public class Board {
 	public void sendCard() {
 		// 發牌給每位玩家
 		for (int i = 0; i < pList.size(); i++) {
-			Player p = new Player();
-			pList.add(p);
 			pList.get(i).extraCard(deck.givecard());
 			pList.get(i).extraCard(deck.givecard());
 		}
+		turn = 1;
 	}
 
-	public void printHandCard(int i) {
+	public ArrayList<Card> printHandCard(int i) {
 		// 第i位玩家的手牌
-		pList.get(i).getHandcard();
+		ArrayList<Card> card = pList.get(i).getHandcard();
+		return card;
 	}
-	
+
 	public int printHandValue(int i) {
+		// 第i位玩家的牌值
 		int value = pList.get(i).handvalue();
 		return value;
 	}
+
 	public void winLose(int i) {
-		// 判斷輸贏
+		// 判斷輸贏，直接跟莊家比
 		if (pList.get(i).handvalue() > pList.get(0).handvalue()) {
 			System.out.println();
 		}

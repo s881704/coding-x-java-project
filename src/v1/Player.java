@@ -3,7 +3,7 @@ package v1;
 import java.util.ArrayList;
 
 public class Player {
-	private ArrayList<Card> handcard;
+	private ArrayList<Card> handcard = new ArrayList<Card>();
 
 	public void extraCard(Card card) {
 		// ¥sµP
@@ -30,9 +30,11 @@ public class Player {
 				ace++;
 			}
 		}
+		//§PÂ_A¬°11 or 1
 		if (sum > 21 && ace > 0) {
-			for (int i = 0; sum > 21; i++) {
-				sum = sum - i * 10;
+			for (int i = 0; sum > 21 && ace>0; i++) {
+				sum = sum -  10;
+				ace--;
 			}
 		}
 		return sum;

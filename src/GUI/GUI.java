@@ -14,7 +14,7 @@ import v1.Board;
 import v1.Player;
 
 public abstract class GUI extends JFrame implements ActionListener  {
-	private Board board;
+	private Board board ;
 	private Player player;
 	public GUI frame;
 	JButton btnStart = new JButton("Start");
@@ -22,6 +22,7 @@ public abstract class GUI extends JFrame implements ActionListener  {
 	JButton btnHit = new JButton("Hit");
 	JButton btnReset = new JButton("Reset");
 	
+	//建構基本按鍵
 	public GUI() {
 		getContentPane().setLayout(null);
 		// setBounds(100, 100, 515, 415);
@@ -47,9 +48,11 @@ public abstract class GUI extends JFrame implements ActionListener  {
 			}
 		});
 	}
-
+	
 	public void startGame(int m, int n) {
-		board = new Board(m, n);
+		board = new Board();
+		board.getPlayer(4);
+		board.getDeck(2);
 		board.sendCard();
 	}
 
@@ -66,12 +69,29 @@ public abstract class GUI extends JFrame implements ActionListener  {
 	}
 
 	public void printCard(int i , JTextArea textArea) {
-		board.printHandCard(i);
+		textArea.setText("");
+		if (i == 0) {
+			textArea.append("*" + " , ");
+			for (int j = 1; j < board.printHandCard(i).size(); j++) {
+				textArea.append(
+						board.printHandCard(i).get(j).getIconMask() +board.printHandCard(i).get(j).getMask() + " , ");
+			}
+		} else {
+			for (int j = 0; j < board.printHandCard(i).size(); j++) {
+				textArea.append(
+						board.printHandCard(i).get(j).getIconMask() + board.printHandCard(i).get(j).getMask() + " , ");
+			}
+		}
 	}
-
+	
 	public String printValue(int i) {
-		System.out.println(player.handvalue());
-		String s = Integer.toString(board.printHandValue(i));
+		String s = "";
+		if (board.printHandValue(i)<=21) {
+		s = Integer.toString(board.printHandValue(i));
+		}
+		else if (board.printHandValue(i)>21) {
+			s = "busted";
+		}
 		return s;
 	}
 

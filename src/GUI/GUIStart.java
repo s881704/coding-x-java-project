@@ -113,7 +113,7 @@ public class GUIStart extends JFrame implements ActionListener {
 			//GUI4p gui4 = new GUI4p();
 			SwingUtilities.invokeLater(new Runnable() {
 				   public void run() {
-				      GUI gui4p = new GUI4p();
+				      GUI gui4p = new GUI4p(people,deck);
 				   }
 				});
 			//gui = new GUI4p();

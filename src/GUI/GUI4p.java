@@ -18,14 +18,14 @@ import javax.swing.*;
 
 
 public class GUI4p extends GUI {
-	int m = 4, n;
+	int m , n;
 	int i = 0;
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		GUI4p frame = new GUI4p();
+		GUI4p frame = new GUI4p(4,2);
 		frame.setVisible(true);
-		frame.setResizable(false);
+		frame.setResizable(true);
 
 	}
 	public void initComponents(){
@@ -34,7 +34,9 @@ public class GUI4p extends GUI {
         setVisible(true);
     }
 
-	public GUI4p() {
+	public GUI4p(int m, int n) {
+		this.m = m;
+		this.n = n;
 			initComponents();
 			setBounds(100, 100, 505, 475);
 			setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -84,15 +86,14 @@ public class GUI4p extends GUI {
 			lblNewLabel.setBounds(32, 327, 312, 81);
 			getContentPane().add(lblNewLabel);
 			
-			//Button
-
+			//Button Listener
 			btnStart.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					startGame(m, n);  //m,n嚙踝蕭�蟡蕭謓剜謖�豰�蕭嚙踝蕭��蕭��t m,n
-					printCard(name0,textArea);
-					printCard(name1,textArea_1);
-					printCard(name2,textArea_2);
-					printCard(name3,textArea_3);
+					printCard(0,textArea);
+					printCard(1,textArea_1);
+					printCard(2,textArea_2);
+					printCard(3,textArea_3);
 					
 					String test = "<html><body>Player1 sum = " + printValue(1) + "<br/>" + "Player2 sum = "
 							+ printValue(2) + "<br/>" + "Player3 sum = " + printValue(3) + "<br/>"
@@ -106,6 +107,18 @@ public class GUI4p extends GUI {
 			//嚙踝�蕭嚙踝蕭
 			btnWager.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
+					wagerButton();
+					printCard(0,textArea);
+					printCard(1,textArea_1);
+					printCard(2,textArea_2);
+					printCard(3,textArea_3);
+					String test = "<html><body>Player1 sum = " + printValue(1) + "<br/>" + "Player2 sum = "
+							+ printValue(2) + "<br/>" + "Player3 sum = " + printValue(3) + "<br/>"
+							+ "</body></html>";;
+					lblNewLabel.setText(test);
+				}
+				
+				/*{
 					if (i == 0) {
 						JOptionPane.showMessageDialog(null, "�蹎∴蕭蹓綽蕭��蕭���蕭嚙�");
 						wagerButton();
@@ -134,12 +147,22 @@ public class GUI4p extends GUI {
 								+ "</body></html>";;
 						lblNewLabel.setText(test);
 					}
-				}
+				}*/
 			});
 
-			btnWager.addActionListener(new ActionListener() {
+			btnHit.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					JOptionPane.showMessageDialog(null, "���蕭������蕭蹓踝蕭嚙�");
+					hitButton();
+					printCard(0,textArea);
+					printCard(1,textArea_1);
+					printCard(2,textArea_2);
+					printCard(3,textArea_3);
+					String test = "<html><body>Player1 sum = " + printValue(1) + "<br/>" + "Player2 sum = "
+							+ printValue(2) + "<br/>" + "Player3 sum = " + printValue(3) + "<br/>"
+							+ "</body></html>";;
+					lblNewLabel.setText(test);
+					/*
 					n++;
 					if(n==3) {
 						wagerButton(); //嚙踐��蕭嚙踐�蕭���嚙踝�蕭嚙踝�蕭�嚙踐播嚙踐�蕭��aler嚙踝�蕭嚙踝嚙踝�ass
@@ -148,17 +171,25 @@ public class GUI4p extends GUI {
 								+ printValue(2) + "<br/>" + "Player3 sum = " + printValue(3) + "<br/>"
 								+ "</body></html>";;
 						JOptionPane.showMessageDialog(null,test);
-						winLose(name1); //嚙踝蕭�謓胃UI Class�����筐嚙踐�蕭��thod
-						winLose(name2);
-						winLose(name3);					
+						winLose(1); //嚙踝蕭�謓胃UI Class�����筐嚙踐�蕭��thod
+						winLose(2);
+						winLose(3);					
 
-					}
+					}*/
 				}
 			});
 	
-			btnWager.addActionListener(new ActionListener() {
+			btnReset.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					clear(); //嚙踝蕭�謓胃UI Class�����筐嚙踐�蕭��thod
+					printCard(0,textArea);
+					printCard(1,textArea_1);
+					printCard(2,textArea_2);
+					printCard(3,textArea_3);
+					String test = "<html><body>Player1 sum = " + printValue(1) + "<br/>" + "Player2 sum = "
+							+ printValue(2) + "<br/>" + "Player3 sum = " + printValue(3) + "<br/>"
+							+ "</body></html>";;
+					lblNewLabel.setText(test);
 				}
 			});		
 			
