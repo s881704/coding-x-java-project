@@ -25,7 +25,7 @@ public class GUI4p extends GUI {
 		// TODO Auto-generated method stub
 		GUI4p frame = new GUI4p();
 		frame.setVisible(true);
-		frame.setResizable(true);
+		frame.setResizable(false);
 
 	}
 	public void initComponents(){
@@ -34,7 +34,7 @@ public class GUI4p extends GUI {
         setVisible(true);
     }
 
-	private GUI4p() {
+	public GUI4p() {
 			initComponents();
 			//TextArea
 			JTextArea textArea = new JTextArea();

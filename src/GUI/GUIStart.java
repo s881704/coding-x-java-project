@@ -9,6 +9,7 @@ import v1.Deck;
 import javax.swing.*;
 
 
+
 public class GUIStart extends JFrame implements ActionListener {
 
 	private static int people;
@@ -106,8 +107,12 @@ public class GUIStart extends JFrame implements ActionListener {
 			break;
 		case 4:
 			//System.out.println("44");
-	    	SwingUtilities.invokeLater(GUI4p::new);
 			//GUI4p gui4 = new GUI4p();
+			SwingUtilities.invokeLater(new Runnable() {
+				   public void run() {
+				      GUI gui4p = new GUI4p();
+				   }
+				});
 			//gui = new GUI4p();
 			break;
 		}
