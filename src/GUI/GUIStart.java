@@ -3,14 +3,12 @@ import java.awt.*;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.JFrame;
+
 import v1.Deck;
-import javax.swing.JTextField;
-import javax.swing.JButton;
-import javax.swing.JLabel;
+
 import javax.swing.*;
-import javax.swing.JFrame;
-import GUI.GUI3p;
+
+import GUI.GUI4p;
 
 public class GUIStart extends JFrame implements ActionListener {
 
@@ -103,12 +101,13 @@ public class GUIStart extends JFrame implements ActionListener {
 		//System.out.println("Good");
 		switch (people) {
 		case 3:
-			System.out.println("33");
-			GUI3p gui3 = new GUI3p();
+			//System.out.println("33");
+			//GUI3p gui3 = new GUI3p();
 			//gui = new GUI3p();
 			break;
 		case 4:
-			System.out.println("44");
+			//System.out.println("44");
+	    	SwingUtilities.invokeLater(GUI4p::new);
 			//GUI4p gui4 = new GUI4p();
 			//gui = new GUI4p();
 			break;
