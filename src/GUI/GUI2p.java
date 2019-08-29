@@ -2,6 +2,7 @@ package GUI;
 import v1.*;
 
 public class GUI2p extends GUI{
+<<<<<<< HEAD
 	private Board board = new Board();
 
 	public void initialzeGame() {
@@ -13,4 +14,7 @@ public class GUI2p extends GUI{
 	public void printLose() {
 		
 	}
+=======
+	
+>>>>>>> master
 }

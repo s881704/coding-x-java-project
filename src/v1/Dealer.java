@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 package v1;
 
 public class Dealer extends Board{
@@ -6,3 +7,12 @@ public class Dealer extends Board{
 	
 
 }
+=======
+package v1;
+
+public class Dealer extends Player{
+	public void extraCard() {
+		//¥sµP
+	}
+}
+>>>>>>> master

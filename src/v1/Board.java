@@ -1,19 +1,79 @@
 package v1;
 
+import java.util.ArrayList;
+
 public class Board {
+<<<<<<< HEAD
 	private Behavior behavior = new Behavior();
 	public void getDeck() {
+=======
+	private Deck deck ;
+	private ArrayList<Player> pList ;
+	private int turn;
+
+	public Board(int m ,int n) {
+		this.deck= new Deck(m);
+		this.pList = new ArrayList<Player>(n);
+	}
+
+	public void setup() {
+		// 取得牌堆
+>>>>>>> master
 		int n = 0;
-		Deck deck = new Deck(n);
+		deck = new Deck(n);
+		// 玩家創建
+		pList = new ArrayList<Player>();
 	}
-	public void getplayer() {
-		Player p1 = new Player();
+
+	public void wager() {
+		// 第i位玩家拿牌
+		deck.givecard();
+		if (pList.get(turn).handvalue() > 21) {
+			turn++;
+			// 揭開手牌、印出爆牌
+		}
+		pList.get(turn).extraCard();
 	}
+<<<<<<< HEAD
 	
 	public void sendCard() {
 		
 	}
 	public void cleanHand() {
 		
+=======
+
+	public void hit() {
+		if (turn == pList.size()) {
+			pList.get(0);
+			// pList(0) 從player改成Dealer
+			//dealer.extraCard();
+			winLose();
+		} else {
+			turn++;
+		}
 	}
+
+	public void clear() {
+		for (int i = 0; i < pList.size(); i++) {
+			pList.get(i).clearHand();
+		}
+		turn = 0;
+	}
+
+	public void sendCard() {
+		// 發牌給每位玩家
+	}
+
+	public void printHandCard() {
+		// 第i位玩家的手牌
+		int i = 1;
+		pList.get(i).getHandcard();
+	}
+
+	public void winLose() {
+		// 判斷輸贏
+>>>>>>> master
+	}
+
 }
