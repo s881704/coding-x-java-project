@@ -28,11 +28,6 @@ public class GUI4p extends GUI {
 	}
 
 	private GUI4p() {
-			getContentPane().setLayout(null);
-			// setBounds(100, 100, 515, 415);
-			setBounds(100, 100, 505, 475);
-			setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-			getContentPane().setLayout(null);
 			
 			//TextArea
 			JTextArea textArea = new JTextArea();
@@ -84,7 +79,7 @@ public class GUI4p extends GUI {
 			String name1 = "Player1";
 			String name2 = "Player2";
 			String name3 = "Player3";
-			JButton btnStart = new JButton("Start");
+
 			btnStart.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					startGame(m, n);  //m,n��神�憭銝����nt m,n
@@ -101,11 +96,8 @@ public class GUI4p extends GUI {
 					JOptionPane.showMessageDialog(null, "�摰�1������");
 				}
 			});
-			btnStart.setBounds(27, 283, 85, 23);
-			getContentPane().add(btnStart);
 
 			//����
-			JButton btnWager = new JButton("Wager");
 			btnWager.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					if (i == 0) {
@@ -138,11 +130,7 @@ public class GUI4p extends GUI {
 					}
 				}
 			});
-			btnWager.setBounds(259, 283, 85, 23);
-			getContentPane().add(btnWager);
-			
-			
-			JButton btnHit = new JButton("Hit");
+
 			btnWager.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					JOptionPane.showMessageDialog(null, "銝�雿摰嗉���");
@@ -161,23 +149,14 @@ public class GUI4p extends GUI {
 					}
 				}
 			});
-			btnHit.setBounds(370, 283, 85, 23);
-			getContentPane().add(btnHit);
-			
-			
-			JButton btnReset = new JButton("Reset");
+	
 			btnWager.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					clear(); //��GUI Class銝剜憓��ethod
 				}
-			});
-			btnReset.setBounds(370, 385, 85, 23);
-			getContentPane().add(btnReset);
+			});		
+			
 		}
 
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
 
-	}
 }
