@@ -8,7 +8,6 @@ import v1.Deck;
 
 import javax.swing.*;
 
-import GUI.GUI4p;
 
 public class GUIStart extends JFrame implements ActionListener {
 
