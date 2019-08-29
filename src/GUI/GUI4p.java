@@ -14,6 +14,8 @@ import java.awt.Font;
 import javax.swing.JButton;
 import javax.swing.SwingConstants;
 import javax.swing.JTextArea;
+import javax.swing.*;
+
 
 public class GUI4p extends GUI {
 	int m, n;
@@ -26,9 +28,14 @@ public class GUI4p extends GUI {
 		frame.setResizable(true);
 
 	}
+	public void initComponents(){
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        pack();
+        setVisible(true);
+    }
 
 	private GUI4p() {
-			
+			initComponents();
 			//TextArea
 			JTextArea textArea = new JTextArea();
 			textArea.setBounds(27, 26, 338, 42);
@@ -82,7 +89,7 @@ public class GUI4p extends GUI {
 
 			btnStart.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					startGame(m, n);  //m,n��神�憭銝����nt m,n
+					startGame(m, n);  //m,n嚙踝蕭�蟡蕭謓剜謖�豰�蕭嚙踝蕭��蕭��t m,n
 					printCard(name0,textArea);
 					printCard(name1,textArea_1);
 					printCard(name2,textArea_2);
@@ -91,17 +98,17 @@ public class GUI4p extends GUI {
 					String test = "<html><body>Player1 sum = " + printValue(name1) + "<br/>" + "Player2 sum = "
 							+ printValue(name2) + "<br/>" + "Player3 sum = " + printValue(name3) + "<br/>"
 							+ "</body></html>";
-							//����神瘜��身憿舐內��嚗＊蝷箏�摰逸and value嚗�UI�銝hand value��� method
+							//嚙踝蕭賹秧嚙踝蕭������嚙踝蕭��澈���嚙踝蕭��嚗蝞蕭����筠nd value��嚙踝�I嚙踝����and value嚙踝蕭嚙� method
 					lblNewLabel.setText(test);
-					JOptionPane.showMessageDialog(null, "�摰�1������");
+					JOptionPane.showMessageDialog(null, "嚙踐�嚙�1嚙踝蕭��蕭��蕭蹓踝蕭嚙�");
 				}
 			});
 
-			//����
+			//嚙踝�蕭嚙踝蕭
 			btnWager.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					if (i == 0) {
-						JOptionPane.showMessageDialog(null, "雿���撘萇��");
+						JOptionPane.showMessageDialog(null, "�蹎∴蕭蹓綽蕭��蕭���蕭嚙�");
 						wagerButton();
 						textArea_1.setText("");
 						printCard(name1,textArea_1);
@@ -110,7 +117,7 @@ public class GUI4p extends GUI {
 								+ "</body></html>";
 						lblNewLabel.setText(test);
 					}if (i == 1) {
-						JOptionPane.showMessageDialog(null, "雿���撘萇��");						
+						JOptionPane.showMessageDialog(null, "�蹎∴蕭蹓綽蕭��蕭���蕭嚙�");						
 						wagerButton();
 						textArea_2.setText("");
 						printCard(name2,textArea_2);
@@ -119,7 +126,7 @@ public class GUI4p extends GUI {
 								+ "</body></html>";;
 						lblNewLabel.setText(test);
 					}if (i == 2) {
-						JOptionPane.showMessageDialog(null, "雿���撘萇��");						
+						JOptionPane.showMessageDialog(null, "�蹎∴蕭蹓綽蕭��蕭���蕭嚙�");						
 						wagerButton();
 						textArea_3.setText("");
 						printCard(name3,textArea_3);
@@ -133,16 +140,16 @@ public class GUI4p extends GUI {
 
 			btnWager.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					JOptionPane.showMessageDialog(null, "銝�雿摰嗉���");
+					JOptionPane.showMessageDialog(null, "���蕭������蕭蹓踝蕭嚙�");
 					n++;
 					if(n==3) {
-						wagerButton(); //�ㄐ���振�������ealer����lass
+						wagerButton(); //嚙踐��蕭嚙踐�蕭���嚙踝�蕭嚙踝�蕭�嚙踐播嚙踐�蕭��aler嚙踝�蕭嚙踝嚙踝�ass
 		
 						String test = "<html><body>Player1 sum = " + printValue(name1) + "<br/>" + "Player2 sum = "
 								+ printValue(name2) + "<br/>" + "Player3 sum = " + printValue(name3) + "<br/>"
 								+ "</body></html>";;
 						JOptionPane.showMessageDialog(null,test);
-						winLose(name1); //��GUI Class銝剜憓��ethod
+						winLose(name1); //嚙踝蕭�謓胃UI Class�����筐嚙踐�蕭��thod
 						winLose(name2);
 						winLose(name3);					
 
@@ -152,7 +159,7 @@ public class GUI4p extends GUI {
 	
 			btnWager.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					clear(); //��GUI Class銝剜憓��ethod
+					clear(); //嚙踝蕭�謓胃UI Class�����筐嚙踐�蕭��thod
 				}
 			});		
 			

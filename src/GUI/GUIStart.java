@@ -1,14 +1,13 @@
 package GUI;
+import java.awt.*;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.JFrame;
-
 import v1.Deck;
-import javax.swing.JTextField;
-import javax.swing.JButton;
-import javax.swing.JLabel;
+
+import javax.swing.*;
+
 
 public class GUIStart extends JFrame implements ActionListener {
 
@@ -19,8 +18,15 @@ public class GUIStart extends JFrame implements ActionListener {
 		frame.setVisible(true);
 		frame.setResizable(false);
 	}
-	public GUIStart() {
+	
 
+    public void initComponents(){
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        pack();
+        setVisible(true);
+    }
+	public GUIStart() {
+		initComponents();
 		setBounds(100, 100, 400, 150);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		getContentPane().setLayout(null);
@@ -32,7 +38,7 @@ public class GUIStart extends JFrame implements ActionListener {
 
 		
 		
-		JButton btnPeopleButton = new JButton("People button");
+		JButton btnPeopleButton = new JButton("People");
 		btnPeopleButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String peo = peotextField.getText();
@@ -56,7 +62,7 @@ public class GUIStart extends JFrame implements ActionListener {
 	
 		
 		
-		JButton btnDeckButton = new JButton("Deck button");
+		JButton btnDeckButton = new JButton("Deck");
 		btnDeckButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String de = decktextField.getText();
@@ -94,12 +100,13 @@ public class GUIStart extends JFrame implements ActionListener {
 		//System.out.println("Good");
 		switch (people) {
 		case 3:
-			System.out.println("33");
+			//System.out.println("33");
 			//GUI3p gui3 = new GUI3p();
 			//gui = new GUI3p();
 			break;
 		case 4:
-			System.out.println("44");
+			//System.out.println("44");
+	    	SwingUtilities.invokeLater(GUI4p::new);
 			//GUI4p gui4 = new GUI4p();
 			//gui = new GUI4p();
 			break;
