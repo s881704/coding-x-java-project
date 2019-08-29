@@ -36,6 +36,9 @@ public class GUI4p extends GUI {
 
 	public GUI4p() {
 			initComponents();
+			setBounds(100, 100, 505, 475);
+			setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+			getContentPane().setLayout(null);
 			//TextArea
 			JTextArea textArea = new JTextArea();
 			textArea.setBounds(27, 26, 338, 42);
