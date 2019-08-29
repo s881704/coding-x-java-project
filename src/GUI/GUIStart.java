@@ -12,6 +12,7 @@ import javax.swing.JLabel;
 import javax.swing.*;
 
 
+
 public class GUIStart extends JFrame implements ActionListener {
 
 	private static int people;
@@ -108,9 +109,14 @@ public class GUIStart extends JFrame implements ActionListener {
 			//gui = new GUI3p();
 			break;
 		case 4:
-			GUI gui = new GUI4p();
-			gui.setVisible(true);
-			gui.setResizable(true);
+			//System.out.println("44");
+			//GUI4p gui4 = new GUI4p();
+			SwingUtilities.invokeLater(new Runnable() {
+				   public void run() {
+				      GUI gui4p = new GUI4p();
+				   }
+				});
+			//gui = new GUI4p();
 			break;
 		}
 
