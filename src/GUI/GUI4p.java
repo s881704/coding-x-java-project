@@ -18,10 +18,10 @@ import javax.swing.JTextArea;
 
 	public class GUI4p extends JFrame implements ActionListener {
 		GUI gui = new GUI();
-		private JTextField textField_1;
-		private JTextField textField;
-		private JTextField textField_2;
-		private JTextField textField_3;
+		int m,n;
+		int i = 0;
+
+
 		
 		public static void main(String[] args) {
 			// TODO Auto-generated method stub
@@ -76,33 +76,109 @@ import javax.swing.JTextArea;
 			lblPlayer_2.setBounds(399, 223, 56, 36);
 			getContentPane().add(lblPlayer_2);
 			
-			//Button
-			JButton btnStart = new JButton("Start");
-			btnStart.setBounds(27, 283, 85, 23);
-			getContentPane().add(btnStart);
-			
-			JButton btnWager = new JButton("Wager");
-			btnWager.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {
-				}
-			});
-			btnWager.setBounds(259, 283, 85, 23);
-			getContentPane().add(btnWager);
-			
-			JButton btnHit = new JButton("Hit");
-			btnHit.setBounds(370, 283, 85, 23);
-			getContentPane().add(btnHit);
-			
-			JButton btnReset = new JButton("Reset");
-			btnReset.setBounds(370, 385, 85, 23);
-			getContentPane().add(btnReset);
-			
 			//Show players' card
 			JLabel lblNewLabel = new JLabel("Card Value");
 			lblNewLabel.setVerticalAlignment(SwingConstants.TOP);
 			lblNewLabel.setFont(new Font("Arial", Font.PLAIN, 16));
 			lblNewLabel.setBounds(32, 327, 312, 81);
-			getContentPane().add(lblNewLabel);}
+			getContentPane().add(lblNewLabel);
+			
+			//Button
+			String name0 = "Player0";
+			String name1 = "Player1";
+			String name2 = "Player2";
+			String name3 = "Player3";
+			JButton btnStart = new JButton("Start");
+			btnStart.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					gui.startGame(m, n);  //m,n我寫在外面一開始int m,n
+					gui.printCard(name0,textArea);
+					gui.printCard(name1,textArea_1);
+					gui.printCard(name0,textArea_2);
+					gui.printCard(name0,textArea_3);
+					
+					String test = "<html><body>Player1 sum = " + gui.printValue(name1);() + "<br/>" + "Player2 sum = "
+							+ gui.printValue(name2); + "<br/>" + "Player3 sum = " + gui.printValue(name3); + "<br/>"
+							+ "</body></html>";   //原本的寫法是重設顯示區，顯示各玩家hand value，但GUI找不到hand value的 method
+					lblNewLabel.setText(test);
+					JOptionPane.showMessageDialog(null, "玩家1開始要牌");
+				}
+			});
+			btnStart.setBounds(27, 283, 85, 23);
+			getContentPane().add(btnStart);
+
+			//抽牌
+			JButton btnWager = new JButton("Wager");
+			btnWager.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					if (i == 0) {
+						JOptionPane.showMessageDialog(null, "你要了一張牌");
+						gui.wagerButton();
+						textArea_1.setText("");
+						gui.printCard(name1,textArea_1);
+						String test = "<html><body>Player1 sum = " + gui.printValue(name1) + "<br/>" + "Player2 sum = "
+								+ gui.printValue(name2) + "<br/>" + "Player3 sum = " + gui.printValue(name3) + "<br/>"
+								+ "</body></html>";
+						lblNewLabel.setText(test);
+					}if (i == 1) {
+						JOptionPane.showMessageDialog(null, "你要了一張牌");						
+						gui.wagerButton();
+						textArea_2.setText("");
+						gui.printCard(name2,textArea_2);
+						String test = "<html><body>Player1 sum = " + gui.printValue(name1) + "<br/>" + "Player2 sum = "
+								+ gui.printValue(name2) + "<br/>" + "Player3 sum = " + gui.printValue(name3) + "<br/>"
+								+ "</body></html>";;
+						lblNewLabel.setText(test);
+					}if (i == 2) {
+						JOptionPane.showMessageDialog(null, "你要了一張牌");						
+						gui.wagerButton();
+						textArea_3.setText("");
+						gui.printCard(name3,textArea_3);
+						String test = "<html><body>Player1 sum = " + gui.printValue(name1) + "<br/>" + "Player2 sum = "
+								+ gui.printValue(name2) + "<br/>" + "Player3 sum = " + gui.printValue(name3) + "<br/>"
+								+ "</body></html>";;
+						lblNewLabel.setText(test);
+					}
+				}
+			});
+			btnWager.setBounds(259, 283, 85, 23);
+			getContentPane().add(btnWager);
+			
+			
+			JButton btnHit = new JButton("Hit");
+			btnWager.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					JOptionPane.showMessageDialog(null, "下一位玩家要牌");
+					n++;
+					if(n==3) {
+						gui.wagerButton(); //這裡換莊家抽牌，要結合Dealer抽牌的Class
+		
+						String test = "<html><body>Player1 sum = " + gui.printValue(name1) + "<br/>" + "Player2 sum = "
+								+ gui.printValue(name2) + "<br/>" + "Player3 sum = " + gui.printValue(name3) + "<br/>"
+								+ "</body></html>";;
+						JOptionPane.showMessageDialog(null,test);
+						gui.winLose(name1); //我在GUI Class中新增這個method
+						gui.winLose(name2);
+						gui.winLose(name3);					
+
+					}
+				}
+			});
+			btnHit.setBounds(370, 283, 85, 23);
+			getContentPane().add(btnHit);
+			
+			
+			JButton btnReset = new JButton("Reset");
+			btnWager.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					gui.clear(); //我在GUI Class中新增這個method
+				}
+			});
+			btnReset.setBounds(370, 385, 85, 23);
+			getContentPane().add(btnReset);
+		}
+			
+
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
