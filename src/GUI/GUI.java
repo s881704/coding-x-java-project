@@ -3,7 +3,7 @@ package GUI;
 import v1.Board;
 import v1.Player;
 
-public abstract class GUI {
+public class GUI {
 	private Board board;
 
 	public void startGame(int m, int n) {
