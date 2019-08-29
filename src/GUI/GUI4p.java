@@ -15,23 +15,19 @@ import javax.swing.JButton;
 import javax.swing.SwingConstants;
 import javax.swing.JTextArea;
 
+public class GUI4p extends GUI {
+	int m, n;
+	int i = 0;
 
-	public class GUI4p extends JFrame implements ActionListener {
-		GUI gui = new GUI();
-		int m,n;
-		int i = 0;
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		GUI4p frame = new GUI4p();
+		frame.setVisible(true);
+		frame.setResizable(true);
 
+	}
 
-		
-		public static void main(String[] args) {
-			// TODO Auto-generated method stub
-			GUI4p frame = new GUI4p();
-			frame.setVisible(true);
-			frame.setResizable(true);
-
-		}
-		
-		private GUI4p() {
+	private GUI4p() {
 			getContentPane().setLayout(null);
 			// setBounds(100, 100, 515, 415);
 			setBounds(100, 100, 505, 475);
@@ -91,51 +87,52 @@ import javax.swing.JTextArea;
 			JButton btnStart = new JButton("Start");
 			btnStart.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					gui.startGame(m, n);  //m,n我寫在外面一開始int m,n
-					gui.printCard(name0,textArea);
-					gui.printCard(name1,textArea_1);
-					gui.printCard(name0,textArea_2);
-					gui.printCard(name0,textArea_3);
+					startGame(m, n);  //m,n��神�憭銝����nt m,n
+					printCard(name0,textArea);
+					printCard(name1,textArea_1);
+					printCard(name2,textArea_2);
+					printCard(name3,textArea_3);
 					
-					String test = "<html><body>Player1 sum = " + gui.printValue(name1);() + "<br/>" + "Player2 sum = "
-							+ gui.printValue(name2); + "<br/>" + "Player3 sum = " + gui.printValue(name3); + "<br/>"
-							+ "</body></html>";   //原本的寫法是重設顯示區，顯示各玩家hand value，但GUI找不到hand value的 method
+					String test = "<html><body>Player1 sum = " + printValue(name1) + "<br/>" + "Player2 sum = "
+							+ printValue(name2) + "<br/>" + "Player3 sum = " + printValue(name3) + "<br/>"
+							+ "</body></html>";
+							//����神瘜��身憿舐內��嚗＊蝷箏�摰逸and value嚗�UI�銝hand value��� method
 					lblNewLabel.setText(test);
-					JOptionPane.showMessageDialog(null, "玩家1開始要牌");
+					JOptionPane.showMessageDialog(null, "�摰�1������");
 				}
 			});
 			btnStart.setBounds(27, 283, 85, 23);
 			getContentPane().add(btnStart);
 
-			//抽牌
+			//����
 			JButton btnWager = new JButton("Wager");
 			btnWager.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					if (i == 0) {
-						JOptionPane.showMessageDialog(null, "你要了一張牌");
-						gui.wagerButton();
+						JOptionPane.showMessageDialog(null, "雿���撘萇��");
+						wagerButton();
 						textArea_1.setText("");
-						gui.printCard(name1,textArea_1);
-						String test = "<html><body>Player1 sum = " + gui.printValue(name1) + "<br/>" + "Player2 sum = "
-								+ gui.printValue(name2) + "<br/>" + "Player3 sum = " + gui.printValue(name3) + "<br/>"
+						printCard(name1,textArea_1);
+						String test = "<html><body>Player1 sum = " + printValue(name1) + "<br/>" + "Player2 sum = "
+								+ printValue(name2) + "<br/>" + "Player3 sum = " + printValue(name3) + "<br/>"
 								+ "</body></html>";
 						lblNewLabel.setText(test);
 					}if (i == 1) {
-						JOptionPane.showMessageDialog(null, "你要了一張牌");						
-						gui.wagerButton();
+						JOptionPane.showMessageDialog(null, "雿���撘萇��");						
+						wagerButton();
 						textArea_2.setText("");
-						gui.printCard(name2,textArea_2);
-						String test = "<html><body>Player1 sum = " + gui.printValue(name1) + "<br/>" + "Player2 sum = "
-								+ gui.printValue(name2) + "<br/>" + "Player3 sum = " + gui.printValue(name3) + "<br/>"
+						printCard(name2,textArea_2);
+						String test = "<html><body>Player1 sum = " + printValue(name1) + "<br/>" + "Player2 sum = "
+								+ printValue(name2) + "<br/>" + "Player3 sum = " + printValue(name3) + "<br/>"
 								+ "</body></html>";;
 						lblNewLabel.setText(test);
 					}if (i == 2) {
-						JOptionPane.showMessageDialog(null, "你要了一張牌");						
-						gui.wagerButton();
+						JOptionPane.showMessageDialog(null, "雿���撘萇��");						
+						wagerButton();
 						textArea_3.setText("");
-						gui.printCard(name3,textArea_3);
-						String test = "<html><body>Player1 sum = " + gui.printValue(name1) + "<br/>" + "Player2 sum = "
-								+ gui.printValue(name2) + "<br/>" + "Player3 sum = " + gui.printValue(name3) + "<br/>"
+						printCard(name3,textArea_3);
+						String test = "<html><body>Player1 sum = " + printValue(name1) + "<br/>" + "Player2 sum = "
+								+ printValue(name2) + "<br/>" + "Player3 sum = " + printValue(name3) + "<br/>"
 								+ "</body></html>";;
 						lblNewLabel.setText(test);
 					}
@@ -148,18 +145,18 @@ import javax.swing.JTextArea;
 			JButton btnHit = new JButton("Hit");
 			btnWager.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					JOptionPane.showMessageDialog(null, "下一位玩家要牌");
+					JOptionPane.showMessageDialog(null, "銝�雿摰嗉���");
 					n++;
 					if(n==3) {
-						gui.wagerButton(); //這裡換莊家抽牌，要結合Dealer抽牌的Class
+						wagerButton(); //�ㄐ���振�������ealer����lass
 		
-						String test = "<html><body>Player1 sum = " + gui.printValue(name1) + "<br/>" + "Player2 sum = "
-								+ gui.printValue(name2) + "<br/>" + "Player3 sum = " + gui.printValue(name3) + "<br/>"
+						String test = "<html><body>Player1 sum = " + printValue(name1) + "<br/>" + "Player2 sum = "
+								+ printValue(name2) + "<br/>" + "Player3 sum = " + printValue(name3) + "<br/>"
 								+ "</body></html>";;
 						JOptionPane.showMessageDialog(null,test);
-						gui.winLose(name1); //我在GUI Class中新增這個method
-						gui.winLose(name2);
-						gui.winLose(name3);					
+						winLose(name1); //��GUI Class銝剜憓��ethod
+						winLose(name2);
+						winLose(name3);					
 
 					}
 				}
@@ -171,19 +168,16 @@ import javax.swing.JTextArea;
 			JButton btnReset = new JButton("Reset");
 			btnWager.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					gui.clear(); //我在GUI Class中新增這個method
+					clear(); //��GUI Class銝剜憓��ethod
 				}
 			});
 			btnReset.setBounds(370, 385, 85, 23);
 			getContentPane().add(btnReset);
 		}
-			
 
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
 
-		@Override
-		public void actionPerformed(ActionEvent e) {
-			// TODO Auto-generated method stub
-			
-		}
+	}
 }
-	
