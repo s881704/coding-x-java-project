@@ -1,10 +1,18 @@
 package GUI;
 
+import javax.swing.JTextArea;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import v1.Board;
 import v1.Player;
 
-public abstract class GUI {
+public class GUI {
 	private Board board;
+	private Player player;
+	public GUI() {
+		
+	}
 
 	public void startGame(int m, int n) {
 		board = new Board(m,n);
@@ -22,11 +30,19 @@ public abstract class GUI {
 		board.clear();
 	}
 
-	public void printCard() {
+	public void printCard(String name, JTextArea textArea) {
 		board.printHandCard();
 	}
 	
-	public void printValue() {
-		
+	public void printValue(String name) {
+		System.out.println(player.handvalue());
+	}
+	
+	public void winLose(String name) {
+		board.winLose();
+	}
+	
+	public void clear() {
+		board.clear();
 	}
 }
