@@ -3,23 +3,26 @@ package v1;
 import java.util.ArrayList;
 
 public class Player {
-	private ArrayList<Card> handcard = new ArrayList<Card>();
+	private ArrayList<Card> handcard ;
 	
 	
-	public void sendcard() {
-		
-	}
 	public void extraCard() {
-		
+		//叫牌
 	}
-	public int handValue() {
-		int value = 0;
-		return value;
-	}
-	public void printHandcard() {
-		
+
+	public ArrayList<Card> getHandcard() {
+		//取得手牌
+		return handcard;
 	}
 	public void clearHand() {
-		
+		//清空手牌
 	}
+	
+	public int handvalue() {
+		// 計算牌值
+		int handvalue = 1;
+		return handvalue;
+	}
+	
+	
 }
