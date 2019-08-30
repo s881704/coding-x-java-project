@@ -2,6 +2,8 @@ package v1;
 
 import java.util.ArrayList;
 
+import javax.swing.JOptionPane;
+
 public class Board {
 	private Deck deck;
 	private ArrayList<Player> pList = new ArrayList<Player>();
@@ -86,8 +88,35 @@ public class Board {
 
 	public void winLose(int i) {
 		// 判斷輸贏，直接跟莊家比
+		/*
 		if (pList.get(i).handvalue() > pList.get(0).handvalue()) {
 			System.out.println();
+		}
+		*/
+		
+		if (pList.get(i).handvalue() <= 21 & pList.get(i).handvalue() > pList.get(0).handvalue()) {
+			String A = pList.get(i).playername(i) + "Win to the dealer !";
+			JOptionPane.showMessageDialog(null, A);
+		}
+		if (pList.get(i).handvalue() > 21 & pList.get(0).handvalue() <= 21) {
+			String B = pList.get(i).playername(i) + "Lose to the dealer !";
+			JOptionPane.showMessageDialog(null, B);
+		}
+		if (pList.get(i).handvalue() == pList.get(0).handvalue()) {
+			String C = pList.get(i).playername(i) + "Flat to the dealer !";
+			JOptionPane.showMessageDialog(null, C);
+		}
+		if (pList.get(0).handvalue() > 21 & pList.get(i).handvalue() > 21) {
+			String D = pList.get(i).playername(i) + "Flat to the dealer !";
+			JOptionPane.showMessageDialog(null, D);
+		}
+		if (pList.get(i).handvalue() <= 21 & pList.get(0).handvalue() > 21) {
+			String E = pList.get(i).playername(i) + "Win to the dealer !";
+			JOptionPane.showMessageDialog(null, E);
+		}
+		if (pList.get(i).handvalue() < 21 & pList.get(i).handvalue() < pList.get(0).handvalue() & pList.get(0).handvalue() <= 21) {
+			String F = pList.get(i).playername(i) + "Lose to the dealer !";
+			JOptionPane.showMessageDialog(null, F);
 		}
 	}
 

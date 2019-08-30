@@ -39,4 +39,14 @@ public class Player {
 		}
 		return sum;
 	}
+	public String playername(int i) {
+		if(i == 1) {
+			//string name = "Player1";
+			return "Player1";
+		}else if(i == 2) {
+			return "Player2";
+		}else {
+			return "Player3";
+		}
+	}
 }
