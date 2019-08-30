@@ -42,6 +42,9 @@ public class Board {
 	//²ø®a¥sµP³W«h
 	public void dealerWager() {
 		if (pList.get(0).handvalue() >= 17) {
+			for(int i = 1;i<=3;i++) {
+				winLose(i);
+			}
 		} else if (pList.get(0).handvalue() < 17) {
 			pList.get(0).extraCard(deck.givecard());
 			dealerWager();

@@ -20,7 +20,7 @@ import javax.swing.*;
 public class GUI4p extends GUI {
 	int m , n;
 	int i = 0;
-
+	int turn = 1;
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		GUI4p frame = new GUI4p(4,2);
@@ -89,7 +89,7 @@ public class GUI4p extends GUI {
 			//Button Listener
 			btnStart.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					startGame(m, n);  //m,n嚙踝蕭�蟡蕭謓剜謖�豰�蕭嚙踝蕭��蕭��t m,n
+					startGame(m, n);  //m,n���嚙踐�豯株雓���蕭鞊堆�蕭豲���嚙踝蕭豲嚙踝蕭� m,n
 					printCard(0,textArea);
 					printCard(1,textArea_1);
 					printCard(2,textArea_2);
@@ -98,13 +98,13 @@ public class GUI4p extends GUI {
 					String test = "<html><body>Player1 sum = " + printValue(1) + "<br/>" + "Player2 sum = "
 							+ printValue(2) + "<br/>" + "Player3 sum = " + printValue(3) + "<br/>"
 							+ "</body></html>";
-							//嚙踝蕭賹秧嚙踝蕭������嚙踝蕭��澈���嚙踝蕭��嚗蝞蕭����筠nd value��嚙踝�I嚙踝����and value嚙踝蕭嚙� method
+							//���鞈察縑蝘批��嚙踝蕭��蕭豯佗蕭謚喉蕭蹎改蕭���嚙踝蕭謍單�蕭�嚙踝蕭�����嚙踝蕭謅�謑脣�����嚙踝蕭��蕭謢畸嚙賜�d value嚙踝蕭謅�謑剖��蕭������蕭嚙踐�蕭謅�嚙踐�nd value�����蕭 method
 					lblNewLabel.setText(test);
-					JOptionPane.showMessageDialog(null, "嚙踐�嚙�1嚙踝蕭��蕭��蕭蹓踝蕭嚙�");
+					JOptionPane.showMessageDialog(null, "Player1 turn");
 				}
 			});
 
-			//嚙踝�蕭嚙踝蕭
+			//���蕭謏�����
 			btnWager.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					wagerButton();
@@ -120,7 +120,7 @@ public class GUI4p extends GUI {
 				
 				/*{
 					if (i == 0) {
-						JOptionPane.showMessageDialog(null, "�蹎∴蕭蹓綽蕭��蕭���蕭嚙�");
+						JOptionPane.showMessageDialog(null, "嚙踐郁頩�頩飭�嚙踝蕭��嚙踝蕭謢對蕭����蕭");
 						wagerButton();
 						textArea_1.setText("");
 						printCard(1,textArea_1);
@@ -129,7 +129,7 @@ public class GUI4p extends GUI {
 								+ "</body></html>";
 						lblNewLabel.setText(test);
 					}if (i == 1) {
-						JOptionPane.showMessageDialog(null, "�蹎∴蕭蹓綽蕭��蕭���蕭嚙�");						
+						JOptionPane.showMessageDialog(null, "嚙踐郁頩�頩飭�嚙踝蕭��嚙踝蕭謢對蕭����蕭");						
 						wagerButton();
 						textArea_2.setText("");
 						printCard(2,textArea_2);
@@ -138,7 +138,7 @@ public class GUI4p extends GUI {
 								+ "</body></html>";;
 						lblNewLabel.setText(test);
 					}if (i == 2) {
-						JOptionPane.showMessageDialog(null, "�蹎∴蕭蹓綽蕭��蕭���蕭嚙�");						
+						JOptionPane.showMessageDialog(null, "嚙踐郁頩�頩飭�嚙踝蕭��嚙踝蕭謢對蕭����蕭");						
 						wagerButton();
 						textArea_3.setText("");
 						printCard(3,textArea_3);
@@ -149,10 +149,14 @@ public class GUI4p extends GUI {
 					}
 				}*/
 			});
-
+			
 			btnHit.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					JOptionPane.showMessageDialog(null, "���蕭������蕭蹓踝蕭嚙�");
+					
+					if (turn<=2) {
+						JOptionPane.showMessageDialog(null, "Next");
+					}
+					turn++;
 					hitButton();
 					printCard(0,textArea);
 					printCard(1,textArea_1);
@@ -165,13 +169,13 @@ public class GUI4p extends GUI {
 					/*
 					n++;
 					if(n==3) {
-						wagerButton(); //嚙踐��蕭嚙踐�蕭���嚙踝�蕭嚙踝�蕭�嚙踐播嚙踐�蕭��aler嚙踝�蕭嚙踝嚙踝�ass
+						wagerButton(); //���蕭謘綽蕭�����蕭��嚙踝蕭嚙踝���蕭謏�����蕭��嚙踐ㄠ������蕭��嚙踝蕭��ler���蕭謏�����ㄟ���蕭�ass
 		
 						String test = "<html><body>Player1 sum = " + printValue(1) + "<br/>" + "Player2 sum = "
 								+ printValue(2) + "<br/>" + "Player3 sum = " + printValue(3) + "<br/>"
 								+ "</body></html>";;
 						JOptionPane.showMessageDialog(null,test);
-						winLose(1); //嚙踝蕭�謓胃UI Class�����筐嚙踐�蕭��thod
+						winLose(1); //���嚙踐雓�I Class嚙踝蕭豲蕭謚喉蕭�嚙踐蝑��蕭��嚙踝蕭��hod
 						winLose(2);
 						winLose(3);					
 
@@ -181,7 +185,7 @@ public class GUI4p extends GUI {
 	
 			btnReset.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					clear(); //嚙踝蕭�謓胃UI Class�����筐嚙踐�蕭��thod
+					clear(); //���嚙踐雓�I Class嚙踝蕭豲蕭謚喉蕭�嚙踐蝑��蕭��嚙踝蕭��hod
 					printCard(0,textArea);
 					printCard(1,textArea_1);
 					printCard(2,textArea_2);
